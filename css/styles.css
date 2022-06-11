@@ -8,6 +8,8 @@
    --bcg-color: #2F303A;
    --bcg-second-color: #F5F4FA;
    --icon-colors: #AFB1B8;
+   
+   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body{
@@ -186,8 +188,23 @@ color: var(--accent-color);
    letter-spacing: 0.02em;
 }
 
-.site-nav .link.current{
+.link.current{
+   position: relative;
+
    color: var(--accent-color);
+}
+
+.link.current::after{
+   position: absolute;
+   left: 0;
+   bottom: 0;
+
+   content: '';
+   display: block;
+   width: 100%;
+   height: 4px;
+   border-radius: 2px;
+   background-color: var(--accent-color);
 }
 
 /* Auth-nav */
@@ -315,7 +332,7 @@ color: var(--accent-color);
 .about-us{
    display: flex;
 }
-.about-us .item+.item {
+.item-about+.item-about {
    margin-left: 30px;
 }
 .section-title{
@@ -327,7 +344,21 @@ color: var(--accent-color);
       line-height: 1.16;
       text-align: center;
    }
-
+.item-about{
+   position: relative;
+}
+   .title-work::after {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+   
+      content: '';
+      display: block;
+      width: 100%;
+      height: 70px;
+      border-radius: 2px;
+      background-color: rgba(47, 48, 58, 0.8);
+      }
 /* Section team */
 
 .section-team {
@@ -396,6 +427,7 @@ color: var(--accent-color);
    border-radius: 50%;
 
    color: var(--icon-colors);
+   background-color: rgba(255, 255, 255, 0.1);
 }
 
 .actions-link:hover,
@@ -511,11 +543,6 @@ color: var(--white-color);
    fill: var(--white-color);
 }
 
-/* .actions.holder li{
-   background-color: rgb(255, 255, 255, 0.1);
-   border-radius: 50%;
-} */
-
 /* Портфолио */
 
 .card-list{
@@ -530,6 +557,51 @@ color: var(--white-color);
    margin-bottom: 30px;
 }
 
+.product-thumb {
+   position: relative;
+}
+
+.product-thumb::before {
+   display: inline-block;
+
+   position: absolute;
+
+   content: "";
+   width: 100%;
+   height: 100%;
+   background-color: var(--accent-color);
+
+   opacity: 0;
+   transition: 250ms opasity var(--timing-function);
+}
+
+.product{
+   position: absolute;
+   bottom: 0;
+   left: 0;
+
+   margin: 0;
+   width: 322px;
+
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+
+   font-size: 18px;
+   line-height: 1.55;
+   
+   color: var(--white-color);
+
+   opacity: 0;
+   transition: 250ms opasity var(--timing-function);
+}
+.link-card:hover .product{
+   opacity: 1;
+}
+
+.link-card:hover .product-thumb::before{
+   opacity: 1;
+}
 
 .link-card:focus,
 .link-card:hover{
