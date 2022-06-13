@@ -37,7 +37,7 @@ body{
    padding-bottom: 94px;
 }
 
-a {
+a{
    display: block;
 }
 
@@ -140,6 +140,10 @@ img{
    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 
    0px 1px 2px rgba(0, 0, 0, 0.08), 
    0px 2px 2px rgba(0, 0, 0, 0.12);
+
+   transition: color 250ms var(--timing-function), 
+   background-color 250ms var(--timing-function),
+   box-shadow 250ms var(--timing-function);
 }
 
 .button.active {
@@ -179,6 +183,8 @@ img{
 .site-nav .link:hover, 
 .site-nav .link:focus{
 color: var(--accent-color);
+
+transition: color 250ms var(--timing-function);
 }
 
 .site-nav .link,
@@ -229,6 +235,8 @@ color: var(--accent-color);
 .auth-nav .link:hover,
 .auth-nav .link:focus{
    color: var(--accent-color);
+
+   transition: color 250ms var(--timing-function);
 }
 
 .icon{
@@ -347,18 +355,28 @@ color: var(--accent-color);
 .item-about{
    position: relative;
 }
-   .title-work::after {
-      position: absolute;
-      left: 0;
-      bottom: 0;
+.title-work{
+   position: absolute;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   bottom:0;
    
-      content: '';
-      display: block;
-      width: 100%;
-      height: 70px;
-      border-radius: 2px;
-      background-color: rgba(47, 48, 58, 0.8);
-      }
+   content: '';
+   width: 100%;
+   height: 70px;
+   margin: 0;
+   
+   font-size: 14px;
+   line-height: 1.14;
+   text-transform: uppercase;
+
+   color: var(--white-color);
+   background-color: rgba(47, 48, 58, 0.8);
+   }
+
 /* Section team */
 
 .section-team {
@@ -432,8 +450,11 @@ color: var(--accent-color);
 
 .actions-link:hover,
 .actions-link:focus{
-background-color: var(--accent-color);
-color: var(--white-color);
+   background-color: var(--accent-color);
+   color: var(--white-color);
+
+   transition: color 250ms var(--timing-function),
+         background-color 250ms var(--timing-function);
 }
 
 .actions-icon{
@@ -477,6 +498,9 @@ color: var(--white-color);
 .partner-link:focus{
    color: var(--accent-color);
    border: 1px solid var(--accent-color);
+
+   transition: color 250ms var(--timing-function),
+         border 250ms var(--timing-function);
 }
 
 /* Футер */
@@ -517,10 +541,14 @@ color: var(--white-color);
 .telephone:hover{
    color: var(--accent-color) ;
 
+   transition: color 250ms var(--timing-function);
+
 }
 .contacts:hover,
 .contacts:focus{
    color: var(--accent-color);
+
+   transition: color 250ms var(--timing-function);
 }
 .block{
    display: inline-block;
@@ -543,6 +571,38 @@ color: var(--white-color);
    fill: var(--white-color);
 }
 
+/* Модалка */
+
+.backdrop{
+   position: fixed;
+   top:0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+
+   background: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden{
+   opacity: 1;
+   pointer-events: none;
+}
+
+.modal{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+
+   min-height: 581px;
+   min-width: 528px;
+   border-radius: 4px;
+
+   background-color: var(--white-color);
+}
+
+
+
 /* Портфолио */
 
 .card-list{
@@ -559,20 +619,25 @@ color: var(--white-color);
 
 .product-thumb {
    position: relative;
+
+   overflow: hidden;
 }
 
-.product-thumb::before {
-   display: inline-block;
-
+.product-overlay{
    position: absolute;
 
-   content: "";
+   bottom: 0;
    width: 100%;
    height: 100%;
    background-color: var(--accent-color);
 
-   opacity: 0;
-   transition: 250ms opasity var(--timing-function);
+   transform: translateY(100%);
+   transition: transform 250ms var(--timing-function);
+}
+
+.link-card:hover .product-overlay,
+.link-card:focus .product-overlay{
+   transform: translateY(0);
 }
 
 .product{
@@ -592,15 +657,7 @@ color: var(--white-color);
    
    color: var(--white-color);
 
-   opacity: 0;
-   transition: 250ms opasity var(--timing-function);
-}
-.link-card:hover .product{
-   opacity: 1;
-}
-
-.link-card:hover .product-thumb::before{
-   opacity: 1;
+   transition: opasity 250ms var(--timing-function);
 }
 
 .link-card:focus,
@@ -608,6 +665,8 @@ color: var(--white-color);
    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 
    0px 4px 4px rgba(0, 0, 0, 0.06), 
    1px 4px 6px rgba(0, 0, 0, 0.16);
+
+   transition: box-shadow 250ms var(--timing-function);
 }
 
 .cards-item:nth-child(3n){
