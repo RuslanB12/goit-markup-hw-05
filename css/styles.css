@@ -106,6 +106,7 @@ img{
    line-height: 1.87;
    letter-spacing: 0.06em;
 }
+
 .button{
    padding: 6px 22px;
    border-radius: 4px;
@@ -122,7 +123,12 @@ img{
    font-weight: 500;
    font-size: 16px;
    line-height: 1.62;
+
+   transition: color 250ms var(--timing-function), 
+   background-color 250ms var(--timing-function),
+   box-shadow 250ms var(--timing-function);
 }
+
 .btn-list{
    display: flex;
    justify-content: center;
@@ -140,10 +146,6 @@ img{
    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 
    0px 1px 2px rgba(0, 0, 0, 0.08), 
    0px 2px 2px rgba(0, 0, 0, 0.12);
-
-   transition: color 250ms var(--timing-function), 
-   background-color 250ms var(--timing-function),
-   box-shadow 250ms var(--timing-function);
 }
 
 .button.active {
@@ -178,13 +180,13 @@ img{
    padding-bottom: 32px;
 
    color: var(--title-text-color);
+
+   transition: color 250ms var(--timing-function);
 }
 
 .site-nav .link:hover, 
 .site-nav .link:focus{
 color: var(--accent-color);
-
-transition: color 250ms var(--timing-function);
 }
 
 .site-nav .link,
@@ -230,18 +232,20 @@ transition: color 250ms var(--timing-function);
    align-items: center;
 
    color:var(--primary-text-color);
+
+   transition: color 250ms var(--timing-function);
 }
 
 .auth-nav .link:hover,
 .auth-nav .link:focus{
    color: var(--accent-color);
-
-   transition: color 250ms var(--timing-function);
 }
 
 .icon{
    margin-right: 10px;
    fill: currentColor;
+
+   transition: fill 250ms var(--timing-function);
 }
 
 /* Hero */
@@ -352,9 +356,11 @@ transition: color 250ms var(--timing-function);
       line-height: 1.16;
       text-align: center;
    }
-.item-about{
+
+.about-overlay{
    position: relative;
 }
+
 .title-work{
    position: absolute;
 
@@ -446,21 +452,23 @@ transition: color 250ms var(--timing-function);
 
    color: var(--icon-colors);
    background-color: rgba(255, 255, 255, 0.1);
+
+   transition: color 250ms var(--timing-function),
+   background-color 250ms var(--timing-function);
 }
 
 .actions-link:hover,
 .actions-link:focus{
    background-color: var(--accent-color);
    color: var(--white-color);
-
-   transition: color 250ms var(--timing-function),
-         background-color 250ms var(--timing-function);
 }
 
 .actions-icon{
    height: 22px;
    width: 22px;
    fill: currentColor;
+
+   transition: fill 250ms var(--timing-function);
 }
 
 /* clients */
@@ -478,6 +486,7 @@ transition: color 250ms var(--timing-function);
 .partners li:not(:last-child) {
    margin-right: 30px;
 }
+
 .partner-link{
    color: var(--icon-colors);
 
@@ -488,19 +497,21 @@ transition: color 250ms var(--timing-function);
    border-radius: 4px;
    height: 92px;
    width: 170px;
+
+   transition: color 250ms var(--timing-function),
+   border 250ms var(--timing-function);
 }
 
 .partner-icon{
    fill: currentColor;
+
+   transition: fill 250ms var(--timing-function);
 }
 
 .partner-link:hover,
 .partner-link:focus{
    color: var(--accent-color);
    border: 1px solid var(--accent-color);
-
-   transition: color 250ms var(--timing-function),
-         border 250ms var(--timing-function);
 }
 
 /* Футер */
@@ -531,6 +542,8 @@ transition: color 250ms var(--timing-function);
 
 .contacts, .telephone {
    color: var(--link-color);
+
+    transition: color 250ms var(--timing-function);
 }
 
 .location {
@@ -540,16 +553,13 @@ transition: color 250ms var(--timing-function);
 .telephone:focus,
 .telephone:hover{
    color: var(--accent-color) ;
-
-   transition: color 250ms var(--timing-function);
-
 }
+
 .contacts:hover,
 .contacts:focus{
    color: var(--accent-color);
-
-   transition: color 250ms var(--timing-function);
 }
+
 .block{
    display: inline-block;
    margin-left: 70px;
@@ -569,6 +579,8 @@ transition: color 250ms var(--timing-function);
    height: 22px;
    width: 22px;
    fill: var(--white-color);
+
+   transition: fill 250ms var(--timing-function);
 }
 
 /* Модалка */
@@ -688,8 +700,6 @@ opacity: 0;
    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 
    0px 4px 4px rgba(0, 0, 0, 0.06), 
    1px 4px 6px rgba(0, 0, 0, 0.16);
-
-   transition: box-shadow 250ms var(--timing-function);
 }
 
 .cards-item:nth-child(3n){
