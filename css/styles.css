@@ -695,6 +695,10 @@ opacity: 0;
    transition: opasity 250ms var(--timing-function);
 }
 
+.link-card{
+transition: box-shadow 250ms var(--timing-function);
+}
+
 .link-card:focus,
 .link-card:hover{
    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 
